@@ -21,7 +21,7 @@ public class UserRowMapper implements RowMapper<User> {
 		user.setPhoneNumber(rs.getString("phone_number"));
 		user.setEmailAddress(rs.getString("email_address"));
 		user.setSex(rs.getInt("sex"));
-		user.setTypeOfUser(rs.getInt("type_of_use"));
+		user.setTypeOfUser(rs.getInt("type_of_user"));
 
 		return user;
 	}
