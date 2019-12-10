@@ -43,49 +43,49 @@
                         		<div class="card">
                         			<div class="card-body">
                         			
-                        				<form>
+                        				<form action="insertTest" method="post" id="userForm">
                         				
                         					<div class="row">
 	                        					<div class="form-group col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
-	                                                <label for="inputText3" class="col-form-label">First Name*</label>
-	                                                <input id="inputText3" type="text" class="form-control">
+	                                                <label for="firstName" class="col-form-label">First Name*</label>
+	                                                <input id="firstName" name="firstName" type="text" class="form-control">
 	                                            </div>
 	                                            
 	                                            <div class="form-group col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
-	                                                <label for="inputText3" class="col-form-label">Middle Name</label>
-	                                                <input id="inputText3" type="text" class="form-control">
+	                                                <label for="middleName" class="col-form-label">Middle Name</label>
+	                                                <input id="middleName" name="middleName" type="text" class="form-control">
 	                                            </div>
 	                                            
 	                                            <div class="form-group col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
-	                                                <label for="inputText3" class="col-form-label">Last Name*</label>
-	                                                <input id="inputText3" type="text" class="form-control">
+	                                                <label for="lastName" class="col-form-label">Last Name*</label>
+	                                                <input id="lastName" type="text" name="lastName" class="form-control">
 	                                            </div>
                         					
                         					</div>
                         			
                         					<div class="row">
                         						<div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
-	                                                <label for="inputText3" class="col-form-label">Phone Number</label>
-	                                                <input id="inputText3" type="text" class="form-control">
+	                                                <label for="phoneNumber" class="col-form-label">Phone Number</label>
+	                                                <input id="phoneNumber" name="phoneNumber" type="text" class="form-control">
 	                                            </div>
 	                                            
 	                                            <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
-	                                                <label for="inputText3" class="col-form-label">Email Address</label>
-	                                                <input id="inputText3" type="text" class="form-control">
+	                                                <label for="email" class="col-form-label">Email Address</label>
+	                                                <input id="email" name="email" type="text" class="form-control">
 	                                            </div>
 	                                            
 	                                            <div class="form-group col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
-													<label for="input-select">Sex</label>
-													<select class="form-control" id="input-select">
-														<option value="male">Male</option>
-														<option value="female">Female</option>
-														<option value="others">Others</option>
+													<label for="sex">Sex</label>
+													<select class="form-control" id="sex" name="sex">
+														<option value="1">Male</option>
+														<option value="2">Female</option>
+														<option value="3">Others</option>
 													</select>
 	                                            </div>
                         					
                         						<div class="form-group col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
-													<label for="input-select">Type of User</label>
-													<select class="form-control" id="input-select">
+													<label for="typeOfUser">Type of User</label>
+													<select class="form-control" id="typeOfUser" name="typeOfUser">
 														<option value="1">Admin</option>
 													</select>
 	                                            </div>
@@ -93,22 +93,22 @@
                         					
 											<div class="row">
 												<div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-	                                                <label for="inputText3" class="col-form-label">User Name*</label>
-	                                                <input id="inputText3" type="text" class="form-control">
+	                                                <label for="userName" class="col-form-label">User Name*</label>
+	                                                <input id="userName" type="text" class="form-control" name="userName">
 	                                            </div>
 											</div>
 											
 											<div class="row">
 												<div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-	                                                <label for="inputText3" class="col-form-label">Password*</label>
-	                                                <input id="inputText3" type="password" class="form-control">
+	                                                <label for="password" class="col-form-label">Password*</label>
+	                                                <input id="password" type="password" class="form-control" name="password">
 	                                            </div>
 											</div>
 											
 											<div class="row">
 												<div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-	                                                <label for="inputText3" class="col-form-label">Re-enter Password*</label>
-	                                                <input id="inputText3" type="password" class="form-control">
+	                                                <label for="rePassword" class="col-form-label">Re-enter Password*</label>
+	                                                <input id="rePassword" type="password" class="form-control" name="rePassword">
 	                                            </div>
 											</div>
 											<br>

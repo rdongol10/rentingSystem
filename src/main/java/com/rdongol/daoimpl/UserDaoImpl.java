@@ -48,7 +48,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public List<User> getAllOrUser() {
+	public List<User> getAllUsers() {
 		String query = "Select * from user";
 		List<User> users = namedParamJdbcTemplate.query(query, new UserRowMapper());
 		return users;

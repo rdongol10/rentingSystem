@@ -1,6 +1,13 @@
 package com.rdongol.domain;
 
 public class User {
+
+	public final static int SEX_MALE = 1;
+	public final static int SEX_FEMALE = 2;
+	public final static int SEX_OTHERS = 3;
+
+	public final static int TYPE_OF_USER_ADMIN = 1;
+
 	private int id;
 	private String loginName;
 	private String password;

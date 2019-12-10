@@ -11,19 +11,19 @@ public interface UserDao {
 	public void setDataSource(DataSource ds);
 
 	// Create a record in the organization table
-	public boolean create(User org);
+	public boolean create(User user);
 
 	// Retrieve a single organization
 	public User getUser(Integer id);
 
 	// Retrieve all organizations from the table.
-	public List<User> getAllOrUser();
+	public List<User> getAllUsers();
 
 	// Delete a specific organization from the table.
-	public boolean delete(User org);
+	public boolean delete(User user);
 
 	// Update an existing organization
-	public boolean update(User org);
+	public boolean update(User user);
 
 	public void cleanup();
 }
