@@ -75,7 +75,7 @@
 	                                            </div>
 	                                            
 	                                            <div class="form-group col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
-													<label for="sex">Sex</label>
+													<label for="sex" class="col-form-label">Sex</label>
 													<select class="form-control" id="sex" name="sex">
 														<option value="1">Male</option>
 														<option value="2">Female</option>
@@ -84,7 +84,7 @@
 	                                            </div>
                         					
                         						<div class="form-group col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
-													<label for="typeOfUser">Type of User</label>
+													<label for="typeOfUser" class="col-form-label">Type of User</label>
 													<select class="form-control" id="typeOfUser" name="typeOfUser">
 														<option value="1">Admin</option>
 													</select>
