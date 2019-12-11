@@ -1,5 +1,7 @@
 package com.rdongol.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,15 +34,18 @@ public class UserController {
 		user.setTypeOfUser(Integer.valueOf(request.getParameter("typeOfUser")));
 
 		userService.addUser(user);
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("userList");
 
-		return mav;
+		return listUsers();
 	}
 
 	@RequestMapping(value = "/listUsers")
-	public String listUsers() {
-		return "userList";
+	public ModelAndView listUsers() {
+		ModelAndView mav = new ModelAndView();
+		List<User> users = userService.getUserList();
+		mav.addObject("users", users);
+		mav.setViewName("userList");
+
+		return mav;
 	}
 
 	@RequestMapping(value = "/addUser")
