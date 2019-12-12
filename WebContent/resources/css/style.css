@@ -6979,6 +6979,12 @@ Media Query
 	color : red;
 }
 
+.topCardHeader{
+	
+	margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width:320px) {}
