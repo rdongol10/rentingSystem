@@ -18,29 +18,25 @@
 				<div class="row">
 					<div class="col-xl-10">
 						
-						<!-- ============================================================== -->
-                        <!-- pageheader  -->
-                        <!-- ============================================================== -->
-						<div class="row">
-							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-								<div class="page-header" id="top">
-									<h2 class="pageheader-title">Add User</h2>
-									<p class="pageheader-text">Please fill all the required fields(*) to add the user</p>
-								</div>
-							</div>
-						</div>
-						
-						<!-- ============================================================== -->
-                        <!-- end pageheader  -->
-                        <!-- ============================================================== -->
-						
-						
 						<!--====================================== --> 
 						<!--  Ueer Form-->						
                         <!-- ===================================== -->
                         <div class="row">
                         	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         		<div class="card">
+                        		
+	                        		<div class="card-header">
+								 		<div class="row">
+								 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+							                    <h2 class=" pageheader-title">
+									 				Add User
+												</h2>
+												<p class="pageheader-text">Please fill all the required fields(*) to add the user</p>
+								 			</div>
+											
+										</div>
+								 	</div>
+								 	
                         			<div class="card-body">
                         			
                         				<form action="insertTest" method="post" id="userForm">
