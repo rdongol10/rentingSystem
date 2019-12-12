@@ -31,7 +31,7 @@
 							                    <h2 class=" pageheader-title">
 									 				Add User
 												</h2>
-												<p class="pageheader-text">Please fill all the required fields(*) to add the user</p>
+												<p class="pageheader-text">Please fill all the required fields(<span class="requiredField">*</span>) to add the user</p>
 								 			</div>
 											
 										</div>
@@ -43,7 +43,7 @@
                         				
                         					<div class="row">
 	                        					<div class="form-group col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
-	                                                <label for="firstName" class="col-form-label">First Name*</label>
+	                                                <label for="firstName" class="col-form-label">First Name<span class="requiredField">*</span></label>
 	                                                <input id="firstName" name="firstName" type="text" class="form-control">
 	                                            </div>
 	                                            
@@ -53,7 +53,7 @@
 	                                            </div>
 	                                            
 	                                            <div class="form-group col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
-	                                                <label for="lastName" class="col-form-label">Last Name*</label>
+	                                                <label for="lastName" class="col-form-label">Last Name<span class="requiredField"><span class="requiredField">*</span></span></label>
 	                                                <input id="lastName" type="text" name="lastName" class="form-control">
 	                                            </div>
                         					
@@ -89,21 +89,21 @@
                         					
 											<div class="row">
 												<div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-	                                                <label for="userName" class="col-form-label">User Name*</label>
+	                                                <label for="userName" class="col-form-label">User Name<span class="requiredField">*</span></label>
 	                                                <input id="userName" type="text" class="form-control" name="userName">
 	                                            </div>
 											</div>
 											
 											<div class="row">
 												<div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-	                                                <label for="password" class="col-form-label">Password*</label>
+	                                                <label for="password" class="col-form-label">Password<span class="requiredField">*</span></label>
 	                                                <input id="password" type="password" class="form-control" name="password">
 	                                            </div>
 											</div>
 											
 											<div class="row">
 												<div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-	                                                <label for="rePassword" class="col-form-label">Re-enter Password*</label>
+	                                                <label for="rePassword" class="col-form-label">Re-enter Password<span class="requiredField">*</span></label>
 	                                                <input id="rePassword" type="password" class="form-control" name="rePassword">
 	                                            </div>
 											</div>

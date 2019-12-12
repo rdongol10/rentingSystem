@@ -6975,6 +6975,9 @@ Media Query
 	float : right; 
 }
 
+.requiredField{
+	color : red;
+}
 
 
 /* Custom, iPhone Retina */
