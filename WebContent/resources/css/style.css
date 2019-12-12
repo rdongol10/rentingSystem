@@ -6970,6 +6970,10 @@ Media Query
     padding: 17px 29px;}
 }
 
+.topAddButton{
+	padding : 9px;
+	float : right; 
+}
 
 
 
