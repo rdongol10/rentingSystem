@@ -62,12 +62,12 @@
                         					<div class="row">
                         						<div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
 	                                                <label for="phoneNumber" class="col-form-label">Phone Number</label>
-	                                                <input id="phoneNumber" name="phoneNumber" type="text" class="form-control">
+	                                                <input id="phoneNumber" name="phoneNumber" type="text" class="form-control phonenumber-inputmask">
 	                                            </div>
 	                                            
 	                                            <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
 	                                                <label for="email" class="col-form-label">Email Address</label>
-	                                                <input id="email" name="email" type="text" class="form-control">
+	                                                <input id="email" name="email" type="text" class="form-control email-inputmask">
 	                                            </div>
 	                                            
 	                                            <div class="form-group col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
@@ -131,6 +131,32 @@
 	</div>
 </body>
 
-<script src="<c:url value="/resources/css/inputmask.css" />" ></script>
+<script src="<c:url value="/resources/js/jquery.inputmask.bundle.js" />" ></script>
+
+<script type="text/javascript">
+
+	jQuery(function(e){
+		"use strict";
+		
+		jQuery(".phonenumber-inputmask").inputmask("9999999999"),
+		
+		jQuery(".email-inputmask").inputmask({
+            mask: "*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[*{2,6}][*{1,2}].*{1,}[.*{2,6}][.*{1,2}]",
+            greedy: !1,
+            onBeforePaste: function(n, a) {
+                return (e = e.toLowerCase()).replace("mailto:", "")
+            },
+            definitions: {
+                "*": {
+                    validator: "[0-9A-Za-z!#$%&'*+/=?^_`{|}~/-]",
+                    cardinality: 1,
+                    casing: "lower"
+                }
+            }
+        })
+		
+		
+	})
+</script>
 
 </html>
