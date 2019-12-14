@@ -6987,5 +6987,11 @@ Media Query
     
 }
 
+.errorFeedback{
+    color: red;
+    font-style: italic;
+    font-size: 11px;
+}
+
 /* Custom, iPhone Retina */
 @media only screen and (max-width:320px) {}
