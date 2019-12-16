@@ -33,5 +33,9 @@ public class UserService {
 	public User getUser(int id) {
 		return userDao.getUser(id);
 	}
+	
+	public boolean doesUserExists(String userName) {
+		return userDao.userExists(userName);
+	}
 
 }

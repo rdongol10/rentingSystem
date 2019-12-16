@@ -77,10 +77,15 @@ public class UserDaoImpl implements UserDao {
 		namedParamJdbcTemplate.getJdbcOperations().execute(sqlQuery);
 	}
 
-	public static void main(String[] args) {
-		UserDaoImpl dao = new UserDaoImpl();
-		User user = new User(1, "rdongol", "rhiyan", "Rabin", "Dongol", "", "9841123023", "rawbean08@gmail.cim", 1, 1);
-		dao.create(user);
+	@Override
+	public boolean userExists(String userName) {
+		SqlParameterSource params = new MapSqlParameterSource("login_name", userName);
+		String query = "Select * from user where login_name = :login_name";
+		List<User> users = namedParamJdbcTemplate.query(query, params, new UserRowMapper());
+
+		return users.size() > 0;
 	}
 
+
+	
 }

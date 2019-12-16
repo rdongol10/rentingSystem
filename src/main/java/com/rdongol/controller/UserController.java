@@ -1,6 +1,8 @@
 package com.rdongol.controller;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.rdongol.domain.User;
 import com.rdongol.service.UserService;
 
@@ -52,4 +56,19 @@ public class UserController {
 	public String addUsers() {
 		return "addUser";
 	}
+
+	@ResponseBody
+	@RequestMapping(value = "/userExists")
+	public String doesUserNameExists(HttpServletRequest request) {
+		Map<String, String> responseMap = new LinkedHashMap<String, String>();
+		System.out.println("========================UserController.doesUserNameExists()");
+		String userName = request.getParameter("username");
+		System.out.println(userName);
+		responseMap.put("UserExists", String.valueOf(userService.doesUserExists(userName)));
+
+		Gson gson = new Gson();
+
+		return gson.toJson(responseMap);
+	}
+
 }

@@ -224,6 +224,7 @@
 		errorFields = []
 		validatePhoneNumber();
 		validatePasswords();
+		doesUserNameExists();
 		
 		return !errorFields.length > 0;
 	}
@@ -250,6 +251,15 @@
 		}
 
 	}
+	
+	function validateUserName(){
+		
+		if(doesUserNameExists()){
+			errorField.id = "userName"
+			errorField.message = "User Name already exists";
+			errorFields.push(errorField)
+		}
+	}
 	function highlightErrorFields() {
 		if (errorFields.length < 1) {
 			return;
@@ -261,6 +271,30 @@
 			jQuery("#" + id).css("border-color", "red");
 			jQuery("#" + id + "-errorFeedback").html(message)
 		})
+	}
+	
+	function doesUserNameExists(){
+		var userName=jQuery("#userName").val()
+		jQuery.ajax({
+			type:"POST",
+			url:"${pageContext.request.contextPath}/userExists",
+			async: false,
+			data:{
+				username :userName
+			},error:function(data){
+				console.log("error")
+			},success:function(data){
+				var results = jQuery.parseJSON(data)
+				if( results.UserExists == "true"){
+					var errorField = {};
+					errorField.id = "userName"
+					errorField.message = "User Name already exists";
+					errorFields.push(errorField)
+				}
+			}
+			
+		});
+		
 	}
 </script>
 </html>

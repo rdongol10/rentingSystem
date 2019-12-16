@@ -24,6 +24,8 @@ public interface UserDao {
 
 	// Update an existing organization
 	public boolean update(User user);
+	
+	public boolean userExists(String userName);
 
 	public void cleanup();
 }
