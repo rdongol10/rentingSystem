@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,7 +25,7 @@ public class UserController {
 	UserService userService;
 
 	@RequestMapping(value = "/insertUser", method = RequestMethod.POST)
-	public ModelAndView insertTest(HttpServletRequest request) {
+	public ModelAndView insertUser(HttpServletRequest request) {
 
 		User user = new User();
 		user.setFirstName(request.getParameter("firstName"));
@@ -41,7 +42,27 @@ public class UserController {
 
 		return listUsers();
 	}
+	
 
+	@RequestMapping(value = "/editUser", method = RequestMethod.POST)
+	public ModelAndView editUser(HttpServletRequest request) {
+
+		User user = userService.getUser(Integer.valueOf(request.getParameter("id")));
+		
+		user.setFirstName(request.getParameter("firstName"));
+		user.setMiddleName(request.getParameter("middleName"));
+		user.setLastName(request.getParameter("lastName"));
+		user.setPhoneNumber(request.getParameter("phoneNumber"));
+		user.setEmailAddress(request.getParameter("email"));
+		user.setSex(Integer.valueOf(request.getParameter("sex")));
+		user.setLoginName(request.getParameter("userName"));
+		user.setTypeOfUser(Integer.valueOf(request.getParameter("typeOfUser")));
+
+		userService.updateUser(user);
+
+		return listUsers();
+	}
+	
 	@RequestMapping(value = "/listUsers")
 	public ModelAndView listUsers() {
 		ModelAndView mav = new ModelAndView();
@@ -69,6 +90,17 @@ public class UserController {
 
 		return gson.toJson(responseMap);
 	}
+	
+	@RequestMapping(value = "/update/{userId}")
+	public ModelAndView findUserByIdForUpdate(ModelAndView model, @PathVariable("userId") int userId) {
+		
+		User user = userService.getUser(userId);
+		model.addObject("user", user);
+		model.setViewName("addUser");
+		return model;
+
+	}
+	
 	
 
 }

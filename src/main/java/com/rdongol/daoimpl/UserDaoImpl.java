@@ -65,7 +65,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public boolean update(User user) {
 		SqlParameterSource beanParams = new BeanPropertySqlParameterSource(user);
-		String query = "Update user Set login_name:loginName, password:password, first_name:firstName, last_name:lastName, middle_name:middleName, phone_number:phoneNumber, email_address:emailAddress, sex:sex, type_of_user:typeOfUser WHERE id =:id  ";
+		String query = "Update user Set first_name=:firstName, last_name=:lastName, middle_name=:middleName, phone_number=:phoneNumber, email_address=:emailAddress, sex=:sex, type_of_user=:typeOfUser WHERE id =:id  ";
 
 		return namedParamJdbcTemplate.update(query, beanParams) == 1;
 

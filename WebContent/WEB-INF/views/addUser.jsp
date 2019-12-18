@@ -14,6 +14,17 @@
 		<%@ include file="menu.jsp" %>  
 	
 	    <div class="dashboard-wrapper">
+	    
+			<c:choose>
+				<c:when test="${empty user}">
+				      <c:set var = "mode" value = "insertUser"/>
+				</c:when>
+				<c:otherwise>
+				      <c:set var = "mode" value = "editUser"/>
+				</c:otherwise>
+			</c:choose>
+			
+			
 			<div class="container-fluid dashboard-content ">
 				<div class="row">
 					<div class="col-xl-10">
@@ -29,7 +40,15 @@
 								 		<div class="row">
 								 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 							                    <h2 class=" pageheader-title">
-									 				Add User
+									 				<c:choose>
+									 					<c:when test="${mode == 'insertUser' }">
+									 						Add User
+									 					</c:when>
+									 					<c:otherwise>
+									 						Edit User
+									 					</c:otherwise>
+									 				</c:choose>
+									 				
 												</h2>
 												<p class="pageheader-text">Please fill all the required fields(<span class="requiredField">*</span>) to add the user</p>
 								 			</div>
@@ -38,21 +57,28 @@
 								 	</div>
 								 	
                         			<div class="card-body">
-                        			
-                        				<form action="insertUser" method="post" id="userForm">
-                        				
+                        				<c:choose>
+                        					<c:when test="${mode == 'insertUser' }">
+										    	<c:set var = "action" value = "insertUser"/>
+                        					</c:when>
+                        					<c:otherwise>
+           								      <c:set var = "action" value = "../editUser"/>
+                        					</c:otherwise>
+                        				</c:choose>
+                        				<form action='<c:out value="${action}"></c:out>' method="post" id="userForm">
+                        					<input name="id" value='<c:out value="${user.id}"></c:out>' style ="display:none">
                         					<div class="row">
 	                        					<div class="form-group col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
 	                                                <label for="firstName" class="col-form-label">First Name<span class="requiredField">*</span></label>
-	                                                <input id="firstName" name="firstName" type="text" class="form-control requiredInputs">
-													<div class="errorFeedback" id="firstName-errorFeedback">
+	                                                <input id="firstName" name="firstName" type="text" class="form-control requiredInputs" value='<c:out value="${user.firstName}"></c:out>'>
+													<div class="errorFeedback" id="firstName-errorFeedback"> 
 														
 													</div>
 	                                            </div>
 	                                            
 	                                            <div class="form-group col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
 	                                                <label for="middleName" class="col-form-label">Middle Name</label>
-	                                                <input id="middleName" name="middleName" type="text" class="form-control required">
+	                                                <input id="middleName" name="middleName" type="text" class="form-control required"  value='<c:out value="${user.middleName}"></c:out>'>
 	                                            	<div class="errorFeedback" id="middleName-errorFeedback">
 														
 													</div>
@@ -60,7 +86,7 @@
 	                                            
 	                                            <div class="form-group col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
 	                                                <label for="lastName" class="col-form-label">Last Name<span class="requiredField">*</span></label>
-	                                                <input id="lastName" type="text" name="lastName" class="form-control requiredInputs">
+	                                                <input id="lastName" type="text" name="lastName" class="form-control requiredInputs"  value='<c:out value="${user.lastName}"></c:out>'>
 	                                            	<div class="errorFeedback" id="lastName-errorFeedback">
 														
 													</div>
@@ -71,7 +97,7 @@
                         					<div class="row">
                         						<div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
 	                                                <label for="phoneNumber" class="col-form-label"><span class="requiredField">*</span>Phone Number</label>
-	                                                <input id="phoneNumber" name="phoneNumber" type="text" class="form-control phonenumber-inputmask requiredInputs">
+	                                                <input id="phoneNumber" name="phoneNumber" type="text" class="form-control phonenumber-inputmask requiredInputs"  value='<c:out value="${user.phoneNumber}"></c:out>'>
 	                                           		<div class="errorFeedback" id="phoneNumber-errorFeedback">
 														
 													</div>
@@ -79,7 +105,7 @@
 	                                            
 	                                            <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
 	                                                <label for="email" class="col-form-label">Email Address</label>
-	                                                <input id="email" name="email" type="text" class="form-control email-inputmask">
+	                                                <input id="email" name="email" type="text" class="form-control email-inputmask"  value='<c:out value="${user.emailAddress}"></c:out>'>
 	                                                <div class="errorFeedback" id="email-errorFeedback">
 														
 													</div>
@@ -88,9 +114,9 @@
 	                                            <div class="form-group col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
 													<label for="sex" class="col-form-label">Sex</label>
 													<select class="form-control" id="sex" name="sex">
-														<option value="1">Male</option>
-														<option value="2">Female</option>
-														<option value="3">Others</option>
+														<option value="1" ${user.sex == 1 ? 'selected' : '' }>Male</option>
+														<option value="2" ${user.sex == 2 ? 'selected' : '' }>Female</option>
+														<option value="3" ${user.sex == 3 ? 'selected' : '' }>Others</option>
 													</select>
 													<div class="errorFeedback" id="sex-errorFeedback">
 														
@@ -100,7 +126,7 @@
                         						<div class="form-group col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
 													<label for="typeOfUser" class="col-form-label">Type of User</label>
 													<select class="form-control" id="typeOfUser" name="typeOfUser">
-														<option value="1">Admin</option>
+														<option value="1" ${user.typeOfUser == 1 ? 'selected' : '' }>Admin</option>
 													</select>
 													<div class="errorFeedback" id="typeOfUser-errorFeedback">
 														
@@ -111,14 +137,14 @@
 											<div class="row">
 												<div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
 	                                                <label for="userName" class="col-form-label">User Name<span class="requiredField">*</span></label>
-	                                                <input id="userName" type="text" class="form-control requiredInputs" name="userName">
+	                                                <input id="userName" type="text" class="form-control requiredInputs" name="userName"  value='<c:out value="${user.loginName}"></c:out>'>
 	                                                <div class="errorFeedback" id="userName-errorFeedback">
 														
 													</div>
 	                                            </div>
 											</div>
 											
-											<div class="row">
+											<div class="row passwordRow">
 												<div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
 	                                                <label for="password" class="col-form-label">Password<span class="requiredField">*</span></label>
 	                                                <input id="password" type="password" class="form-control requiredInputs" name="password">
@@ -128,7 +154,7 @@
 	                                            </div>
 											</div>
 											
-											<div class="row">
+											<div class="row passwordRow">
 												<div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
 	                                                <label for="rePassword" class="col-form-label">Re-enter Password<span class="requiredField">*</span></label>
 	                                                <input id="rePassword" type="password" class="form-control requiredInputs" name="rePassword">
@@ -140,7 +166,16 @@
 											<br>
 											<div class="row">
 												<div class="form-group col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
-													<button class="btn btn-primary" id="addUser">Add User</button>
+													<button class="btn btn-primary" id="addUser">
+														<c:choose>
+									 					<c:when test="${mode == 'insertUser' }">
+									 						Add User
+									 					</c:when>
+									 					<c:otherwise>
+									 						Update User
+									 					</c:otherwise>
+									 				</c:choose>
+													</button>
 												</div>	
 											</div>
                         			
@@ -168,8 +203,17 @@
 
 	
 	var errorFields = []
+	var mode = '${mode}'
+	console.log(mode)
 	jQuery(document).ready(function() {
 
+		if(mode == "editUser"){
+		
+			jQuery("#userName").attr("disabled","disabled");
+			jQuery(".passwordRow").hide();
+			
+		}
+		
 		jQuery(".form-control").on("focus",function(){
 			var id = jQuery(this).attr("id");	
 			jQuery(this).css("border-color","");
@@ -182,7 +226,6 @@
 			if (validateInputs()) {
 				jQuery("#userForm").submit()
 			} else {
-				console.log("wrong ")
 				highlightErrorFields()
 			}
 
@@ -205,7 +248,7 @@
 
 	function validateRequiredFields() {
 		errorFields = []
-		jQuery(".requiredInputs").each(function() {
+		jQuery(".requiredInputs:visible").each(function() {
 			var errorField = {};
 
 			if (this.value.trim() == "") {
@@ -223,8 +266,13 @@
 	function validateOtherFields(){
 		errorFields = []
 		validatePhoneNumber();
-		validatePasswords();
-		doesUserNameExists();
+		
+		if(mode == "insertUser"){
+			
+			validatePasswords();
+			doesUserNameExists();
+
+		}
 		
 		return !errorFields.length > 0;
 	}

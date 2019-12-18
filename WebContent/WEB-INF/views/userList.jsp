@@ -109,7 +109,7 @@
 													</td>
 													<td>
 													
-														<a href="#" class="btn btn-primary btn-sm" >
+														<a href="${contextPath}/update/<c:out value='${user.id}'/>" class="btn btn-primary btn-sm" >
 															  Edit&nbsp;<i class="fas fa-edit"></i>
 														</a>&nbsp;
 														<a href="#" class="btn btn-danger btn-sm" >
