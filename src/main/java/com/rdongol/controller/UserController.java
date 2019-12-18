@@ -91,7 +91,7 @@ public class UserController {
 		return gson.toJson(responseMap);
 	}
 	
-	@RequestMapping(value = "/update/{userId}")
+	@RequestMapping(value = "/updateUser/{userId}")
 	public ModelAndView findUserByIdForUpdate(ModelAndView model, @PathVariable("userId") int userId) {
 		
 		User user = userService.getUser(userId);
@@ -101,6 +101,11 @@ public class UserController {
 
 	}
 	
-	
+	@RequestMapping(value = "/deleteUser/{userId}")
+	public ModelAndView deleteUser(ModelAndView model, @PathVariable("userId") int userId) {
+		User user = userService.getUser(userId);
+		userService.removeUser(user);
+		return listUsers();
+	}
 
 }

@@ -109,10 +109,10 @@
 													</td>
 													<td>
 													
-														<a href="${contextPath}/update/<c:out value='${user.id}'/>" class="btn btn-primary btn-sm" >
+														<a href="${contextPath}/updateUser/<c:out value='${user.id}'/>" class="btn btn-primary btn-sm" >
 															  Edit&nbsp;<i class="fas fa-edit"></i>
 														</a>&nbsp;
-														<a href="#" class="btn btn-danger btn-sm" >
+														<a href="${contextPath}/deleteUser/<c:out value='${user.id}'/>" class="btn btn-danger btn-sm" >
 															Delete&nbsp;<i class="fas fa-trash-alt"></i>
 														</a>
 												
