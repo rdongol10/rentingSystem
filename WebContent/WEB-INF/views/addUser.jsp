@@ -39,7 +39,7 @@
 								 	
                         			<div class="card-body">
                         			
-                        				<form action="insertTest" method="post" id="userForm">
+                        				<form action="insertUser" method="post" id="userForm">
                         				
                         					<div class="row">
 	                        					<div class="form-group col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
@@ -277,7 +277,7 @@
 		var userName=jQuery("#userName").val()
 		jQuery.ajax({
 			type:"POST",
-			url:"${pageContext.request.contextPath}/userExists",
+			url:"${pageContext.request.contextPath}/userNameExists",
 			async: false,
 			data:{
 				username :userName

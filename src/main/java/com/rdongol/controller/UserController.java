@@ -23,7 +23,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping(value = "/insertTest", method = RequestMethod.POST)
+	@RequestMapping(value = "/insertUser", method = RequestMethod.POST)
 	public ModelAndView insertTest(HttpServletRequest request) {
 
 		User user = new User();
@@ -58,17 +58,17 @@ public class UserController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/userExists")
+	@RequestMapping(value = "/userNameExists")
 	public String doesUserNameExists(HttpServletRequest request) {
+		
 		Map<String, String> responseMap = new LinkedHashMap<String, String>();
-		System.out.println("========================UserController.doesUserNameExists()");
 		String userName = request.getParameter("username");
-		System.out.println(userName);
 		responseMap.put("UserExists", String.valueOf(userService.doesUserExists(userName)));
 
 		Gson gson = new Gson();
 
 		return gson.toJson(responseMap);
 	}
+	
 
 }

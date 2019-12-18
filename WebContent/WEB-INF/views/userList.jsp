@@ -40,7 +40,7 @@
 						 	</div>
 							<div class="card-body">
 								
-								<div class="table-responsive">
+								<div class="">
 									
 									<table class="table table-striped table-bordered first" id="userTable">
 										<thead>
@@ -51,8 +51,9 @@
 											    <th>Last Name</th>
 											    <th>Sex</th>
 											    <th>Phone Number</th>
-			 									    <th>Email Address</th>
+		 									    <th>Email Address</th>
 											    <th>Type of User</th>
+											    <th>Action</th>
 											</tr>
 										</thead>
 											
@@ -105,6 +106,16 @@
 																<c:out value="${user.typeOfUser}"/>
 															</c:otherwise>
 														</c:choose>
+													</td>
+													<td>
+													
+														<a href="#" class="btn btn-primary btn-sm" >
+															  Edit&nbsp;<i class="fas fa-edit"></i>
+														</a>&nbsp;
+														<a href="#" class="btn btn-danger btn-sm" >
+															Delete&nbsp;<i class="fas fa-trash-alt"></i>
+														</a>
+												
 													</td>
 												</tr>	
 											</c:forEach>
